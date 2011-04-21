@@ -6,6 +6,7 @@ make install
 to copy index to beginning of file:
 nutindex old.nut new.nut
 
+
 to use:
 nutmerge input.avi output.nut  # only MPEG-4 with MP3
 nutmerge input.ogg output.nut  # only Vorbis
