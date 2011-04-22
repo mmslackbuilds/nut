@@ -1,5 +1,8 @@
 to compile:
 make
+
+
+to install:
 make install
 
 
