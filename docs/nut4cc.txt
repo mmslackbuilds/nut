@@ -94,6 +94,10 @@ RGBA    Packed RGBA 8:8:8:8, 32bpp, RGBA [NOT in AVI]
 BGRA    Packed RGBA 8:8:8:8, 32bpp, BGRA [NOT in AVI]
 ABGR    Packed RGBA 8:8:8:8, 32bpp, ABGR [NOT in AVI]
 ARGB    Packed RGBA 8:8:8:8, 32bpp, ARGB [NOT in AVI]
+RGB[0]  Packed RGB 8:8:8, 32bpp, RGBx, 4th byte ignored [NOT in AVI]
+BGR[0]  Packed RGB 8:8:8, 32bpp, BGRx, 4th byte ignored [NOT in AVI]
+[0]BGR  Packed RGB 8:8:8, 32bpp, xBGR, 1st byte ignored [NOT in AVI]
+[0]RGB  Packed RGB 8:8:8, 32bpp, xRGB, 1st byte ignored [NOT in AVI]
 RGB[24] Packed RGB 8:8:8, 24bpp RGB [NOT in AVI]
 BGR[24] Packed RGB 8:8:8, 24bpp BGR [NOT in AVI]
 BGR[48] Packed RGB 16:16:16, 48bpp, 16B, 16G, 16R, the 2-byte value for each R/G/B component is stored as little-endian [NOT in AVI]
@@ -112,6 +116,10 @@ RBA[64] Packed RGBA 16:16:16:16, 64bpp, 16R, 16G, 16B, 16A, the 2-byte value for
 ARB[64] Packed ARGB 16:16:16:16, 64bpp, 16A, 16R, 16G, 16B, the 2-byte value for each R/G/B component is stored as little-endian [NOT in AVI]
 BRA[64] Packed BGRA 16:16:16:16, 64bpp, 16B, 16G, 16R, 16A, the 2-byte value for each R/G/B component is stored as little-endian [NOT in AVI]
 ABR[64] Packed ABGR 16:16:16:16, 64bpp, 16A, 16B, 16G, 16R, the 2-byte value for each R/G/B component is stored as little-endian [NOT in AVI]
+[64]RBA Packed RGBA 16:16:16:16, 64bpp, 16R, 16G, 16B, 16A, the 2-byte value for each R/G/B component is stored as big-endian [NOT in AVI]
+[64]ARB Packed ARGB 16:16:16:16, 64bpp, 16A, 16R, 16G, 16B, the 2-byte value for each R/G/B component is stored as big-endian [NOT in AVI]
+[64]BRA Packed BGRA 16:16:16:16, 64bpp, 16B, 16G, 16R, 16A, the 2-byte value for each R/G/B component is stored as big-endian [NOT in AVI]
+[64]ABR Packed ABGR 16:16:16:16, 64bpp, 16A, 16B, 16G, 16R, the 2-byte value for each R/G/B component is stored as big-endian [NOT in AVI]
 
 Since many exotic planar YUVA pixel formats are not contemplated by
 the AVI/QuickTime FourCC lists, the following scheme is adopted for
