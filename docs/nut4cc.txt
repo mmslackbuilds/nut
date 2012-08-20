@@ -169,5 +169,6 @@ UTF8    Raw utf8
 SSA[0]  SubStation Alpha
 DVDS    DVD subtitles
 DVBS    DVB subtitles
+DVBT    DVB teletext
 
 FIXME dv/gray16/audio codecs/multi channel interleaving
