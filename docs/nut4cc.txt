@@ -131,6 +131,10 @@ Y2 = Y+A
 Y3 = YUV
 Y4 = YUVA
 
+Similar for planar RGB formats:
+G3 = Planar GBR
+G4 = Planar GBRA
+
 The third byte represents the width and height chroma subsampling
 values for the UV planes, that is the amount to shift the luma
 width/height right to find the chroma width/height.
@@ -140,7 +144,7 @@ The fourth byte is the number of bits used (8, 16, ...).
 If the order of bytes is inverted, that means that each component has
 to be read big-endian.
 
-Follows the list of the supported YUVA planar format FourCCs created
+Follows the list of the supported YUVA and GBR planar format FourCCs created
 using this scheme:
 
 Y1[00][16]  Planar gray, 16bpp, little-endian [NOT in AVI]
@@ -153,6 +157,17 @@ Y3[00][16]  Planar YUV 4:4:4, 48bpp, (1 Cr & Cb sample per 1x1 Y samples), littl
 [16][00]3Y  Planar YUV 4:4:4, 48bpp, (1 Cr & Cb sample per 1x1 Y samples), big-endian    [NOT in AVI]
 Y4[11][ 8]  Planar YUV 4:2:0, 20bpp, (1 Cr & Cb sample per 2x2 Y & A samples)            [NOT in AVI]
 Y2[00][ 8]  8bit gray, 8bit alpha [NOT in AVI]
+G3[00][ 8]  Planar GBR, 24bpp [NOT in AVI]
+G3[00][ 9]  Planar GBR, 27bpp, 7 unused MSB per 16bit value, little-endian [NOT in AVI]
+[ 9][00]3G  Planar GBR, 27bpp, 7 unused MSB per 16bit value, big-endian    [NOT in AVI]
+G3[00][10]  Planar GBR, 30bpp, 6 unused MSB per 16bit value, little-endian [NOT in AVI]
+[10][00]3G  Planar GBR, 30bpp, 6 unused MSB per 16bit value, big-endian    [NOT in AVI]
+G3[00][12]  Planar GBR, 36bpp, 4 unused MSB per 16bit value, little-endian [NOT in AVI]
+[12][00]3G  Planar GBR, 36bpp, 4 unused MSB per 16bit value, big-endian    [NOT in AVI]
+G3[00][14]  Planar GBR, 42bpp, 2 unused MSB per 16bit value, little-endian [NOT in AVI]
+[14][00]3G  Planar GBR, 42bpp, 2 unused MSB per 16bit value, big-endian    [NOT in AVI]
+G3[00][16]  Planar GBR, 48bpp, little-endian [NOT in AVI]
+[16][00]3G  Planar GBR, 48bpp, big-endian    [NOT in AVI]
 
 Raw audio: [x] is an byte with value x,  [NOT in AVI]
 ALAW    A-LAW
