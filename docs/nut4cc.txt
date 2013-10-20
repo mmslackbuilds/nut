@@ -120,6 +120,8 @@ ABR[64] Packed ABGR 16:16:16:16, 64bpp, 16A, 16B, 16G, 16R, the 2-byte value for
 [64]ARB Packed ARGB 16:16:16:16, 64bpp, 16A, 16R, 16G, 16B, the 2-byte value for each R/G/B component is stored as big-endian [NOT in AVI]
 [64]BRA Packed BGRA 16:16:16:16, 64bpp, 16B, 16G, 16R, 16A, the 2-byte value for each R/G/B component is stored as big-endian [NOT in AVI]
 [64]ABR Packed ABGR 16:16:16:16, 64bpp, 16A, 16B, 16G, 16R, the 2-byte value for each R/G/B component is stored as big-endian [NOT in AVI]
+XYZ[36] Packed XYZ  12:12:12,    48bpp, 12X, 4, 12Y, 4, 12Z, 4, the 2-byte value for each XYZ+4bit component is stored as little-endian [NOT in AVI]
+[36]ZYX Packed XYZ  12:12:12,    48bpp, 12X, 4, 12Y, 4, 12Z, 4, the 2-byte value for each XYZ+4bit component is stored as big-endian [NOT in AVI]
 
 Since many exotic planar YUVA pixel formats are not contemplated by
 the AVI/QuickTime FourCC lists, the following scheme is adopted for
