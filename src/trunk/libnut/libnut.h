@@ -48,7 +48,7 @@ typedef struct {
 
 /// stream header struct \ingroup demuxer muxer
 typedef struct {
-	int type;                 ///< Possible values are enum ::nut_stream_class_t. A value of -1 terminates a stream header array.
+	int type;                 ///< Possible values are enum ::nut_stream_class_tt. A value of -1 terminates a stream header array.
 	int fourcc_len;           ///< fourcc length
 	uint8_t * fourcc;         ///< fourcc in big-endian format
 	nut_timebase_tt time_base; ///< stream timebase
@@ -99,7 +99,7 @@ typedef struct {
 	int len;          ///< Length of frame in bytes, \b must be zero if #NUT_FLAG_EOR is set.
 	int stream;       ///< stream index of frame
 	uint64_t pts;     ///< presentation timestamp of frame
-	int flags;        ///< frame flags from #nut_frame_flags_t
+	int flags;        ///< frame flags from #nut_frame_flags_tt
 	int64_t next_pts; ///< Only used in muxer. Only necessary if nut_write_frame_reorder() is used.
 } nut_packet_tt;
 
@@ -256,19 +256,19 @@ int nut_seek(nut_context_tt * nut, double time_pos, int flags, const int * activ
  * \verbinclude COPYING
  */
 
-/*! \struct nut_alloc_t
+/*! \struct nut_alloc_tt
  * libc semantics are assumed for all functions (realloc must work with NULL or zero size).
  *
- * #malloc function pointer may be NULL. This indicates using libc malloc, realloc and free functions.
+ * malloc function pointer may be NULL. This indicates using libc malloc, realloc and free functions.
  *
- * If #malloc is not NULL, #realloc and #free \b must \b not be NULL.
+ * If malloc is not NULL, realloc and free \b must \b not be NULL.
  */
 
-/*! \struct nut_timebase_t
+/*! \struct nut_timebase_tt
  * The example shown is if fps is 23.976 (24000/1001). Timebase is the opposite of fps.
  */
 
-/*! \struct nut_info_field_t
+/*! \struct nut_info_field_tt
  * \par Example:
  * \code
  * char * text = "The Foobar Adventure";
@@ -322,7 +322,7 @@ int nut_seek(nut_context_tt * nut, double time_pos, int flags, const int * activ
  */
 
 /*! \var int nut_info_packet_tt::count
- * For arrays of #nut_info_packet_t, the packet with a #count of \a -1
+ * For arrays of #nut_info_packet_tt, the packet with a #count of \a -1
  * terminates the array.
  */
 

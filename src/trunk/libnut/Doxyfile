@@ -2,7 +2,6 @@ PROJECT_NAME           = libnut
 OUTPUT_DIRECTORY       = doxygen
 CREATE_SUBDIRS         = NO
 REPEAT_BRIEF           = YES
-DETAILS_AT_TOP         = YES
 OPTIMIZE_OUTPUT_FOR_C  = YES
 EXTRACT_ALL            = NO
 SORT_MEMBER_DOCS       = NO
