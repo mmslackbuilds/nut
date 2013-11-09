@@ -44,6 +44,10 @@
 #define MAX(a,b) ((a) > (b) ? (a) : (b))
 #define ABS(a) ((a) > 0 ? (a) : -(a))
 
+#if (defined(__MINGW32__) && !defined(__MINGW64_VERSION_MAJOR))
+#define ftello(a) ((off_t)(_ftelli64(a)))
+#endif
+
 typedef struct {
 	nut_input_stream_tt isc;
 	int is_mem;
