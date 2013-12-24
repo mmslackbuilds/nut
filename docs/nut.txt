@@ -1,5 +1,5 @@
 ==================================
-NUT Open Container Format 20080202
+NUT Open Container Format 20131223
 ==================================
 
 
@@ -243,6 +243,8 @@ reserved_headers
 
 main_header:
     version                             v
+    if (version > 3)
+        minor_version                   v
     stream_count                        v
     max_distance                        v
     time_base_count                     v
@@ -462,6 +464,12 @@ info_startcode (f(64))
 
 version (v)
     NUT version. The current value is 3. All lower values are pre-freeze.
+
+minor_version (v)
+    NUT minor_version. This represents minor changes in the specification
+    which do not affect compatibility. Demuxers MUST NOT reject files
+    based on this value.
+    The current value is 0
 
 stream_count (v)
     number of streams in this file
