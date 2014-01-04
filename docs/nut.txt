@@ -353,6 +353,46 @@ frame:
     }
     data
 
+data:
+    if (frame_flags&FLAG_SM_DATA) {
+        side_data
+        meta_data
+    }
+    frame_data
+
+sm_data:
+    count                               v
+    for(i=0; i<count; i++){
+        name                            vb
+        value                           s
+        if (value==-1){
+            type= "UTF-8"
+            value                       vb
+        }else if (value==-2){
+            type                        vb
+            value                       vb
+        }else if (value==-3){
+            type= "s"
+            value                       s
+        }else if (value==-4){
+            type= "t"
+            value                       t
+        }else if (value<-4){
+            type= "r"
+            value.den= -value-4
+            value.num                   s
+        }else{
+            type= "v"
+        }
+    }
+
+side_data
+    sm_data
+
+meta_data
+    sm_data
+
+
 index:
     max_pts                             t
     syncpoints                          v
@@ -401,30 +441,7 @@ info_packet:
                                            until 2006-11-04.)
     chapter_start                       t
     chapter_len                         v
-    count                               v
-    for(i=0; i<count; i++){
-        name                            vb
-        value                           s
-        if (value==-1){
-            type= "UTF-8"
-            value                       vb
-        }else if (value==-2){
-            type                        vb
-            value                       vb
-        }else if (value==-3){
-            type= "s"
-            value                       s
-        }else if (value==-4){
-            type= "t"
-            value                       t
-        }else if (value<-4){
-            type= "r"
-            value.den= -value-4
-            value.num                   s
-        }else{
-            type= "v"
-        }
-    }
+    meta_data
     reserved_bytes
 
 syncpoint:
@@ -651,6 +668,8 @@ flags[frame_code], frame_flags (v)
                            otherwise data_size_msb is 0.
        6  FLAG_CHECKSUM    If set, the frame header contains a checksum.
        7  FLAG_RESERVED    If set, reserved_count is coded in the frame header.
+       8  FLAG_SM_DATA     If set, side/meta data is stored with the frame data.
+                           This flag MUST NOT be set in version < 4
       10  FLAG_HEADER_IDX  If set, header_idx is coded in the frame header.
       11  FLAG_MATCH_TIME  If set, match_time_delta is coded in the frame
                            header
@@ -699,6 +718,37 @@ pts_delta[frame_code] (s)
 
 reserved_count[frame_code] (v)
     MUST be <256.
+
+sm_data / side_data / meta_data
+    This data structure is used both in frames for per frame side and metadata
+    as well as info tags for metadata covering the whole file, a stream
+    chapter or other.
+    Metadata is data that is about the actual data and generally not essential
+    for correct presentation
+    Sidedata is semantically part of the data and essential for its correct
+    presentation. The same syntax is used by both for simplicity.
+    Types of per frame side data:
+    "Channels", "ChannelLayout", "SampleRate", "Width", "Height"
+        This frame changes the number of channels, the channel layout, ... to
+        the given value (ChannelLayout vb, else v)
+        If used in any frame of a stream then every keyframe of the stream
+        SHOULD carry such sidedata to allow seeking.
+    "Extradata", "Palette"
+        This frame changes the codec_specific_data or palette to the given
+        value (vb)
+        If used in any frame of a stream then every keyframe of the stream
+        SHOULD carry such sidedata to allow seeking.
+    "CodecSpecificSide<num>"
+        Codec specific side data, equivalent to matroskas BlockAdditional (vb)
+        the "<num>" should be replaced by a number identifying the type of
+        side data, it is equivalent/equal to BlockAddId in matroska.
+    "SkipStart", "SkipEnd"
+        The decoder should skip/drop the specified number of samples at the
+        start/end of this frame (v)
+    "UserData<identifer here>"
+        User specific side data, the "<identifer here>" should be replaced
+        by a globally unique identifer of the project that
+        uses/creates/understands the side data. For example "UserDataFFmpeg"
 
 data_size
     data_size = data_size_lsb + data_size_msb * data_size_mul ;
