@@ -122,6 +122,18 @@ ABR[64] Packed ABGR 16:16:16:16, 64bpp, 16A, 16B, 16G, 16R, the 2-byte value for
 [64]ABR Packed ABGR 16:16:16:16, 64bpp, 16A, 16B, 16G, 16R, the 2-byte value for each R/G/B component is stored as big-endian [NOT in AVI]
 XYZ[36] Packed XYZ  12:12:12,    48bpp, 12X, 4, 12Y, 4, 12Z, 4, the 2-byte value for each XYZ+4bit component is stored as little-endian [NOT in AVI]
 [36]ZYX Packed XYZ  12:12:12,    48bpp, 12X, 4, 12Y, 4, 12Z, 4, the 2-byte value for each XYZ+4bit component is stored as big-endian [NOT in AVI]
+[0xBA]BG[8]  Bayer, BGBG..(odd line), GRGR..(even line), 8-bit samples [NOT in AVI]
+[0xBA]BG[16] Bayer, BGBG..(odd line), GRGR..(even line), 16-bit samples, little-endian [NOT in AVI]
+[16]GB[0xBA] Bayer, BGBG..(odd line), GRGR..(even line), 16-bit samples, big-endian [NOT in AVI]
+[0xBA]RG[8]  Bayer, RGRG..(odd line), GBGB..(even line), 8-bit samples [NOT in AVI]
+[0xBA]RG[16] Bayer, RGRG..(odd line), GBGB..(even line), 16-bit samples, little-endian [NOT in AVI]
+[16]GR[0xBA] Bayer, RGRG..(odd line), GBGB..(even line), 16-bit samples, big-endian [NOT in AVI]
+[0xBA]GB[8]  Bayer, GBGB..(odd line), RGRG..(even line), 8-bit samples [NOT in AVI]
+[0xBA]GB[16] Bayer, GBGB..(odd line), RGRG..(even line), 16-bit samples, little-endian [NOT in AVI]
+[16]BG[0xBA] Bayer, GBGB..(odd line), RGRG..(even line), 16-bit samples, big-endian [NOT in AVI]
+[0xBA]GR[8]  Bayer, GRGR..(odd line), BGBG..(even line), 8-bit samples [NOT in AVI]
+[0xBA]GR[16] Bayer, GRGR..(odd line), BGBG..(even line), 16-bit samples, little-endian [NOT in AVI]
+[16]RG[0xBA] Bayer, GRGR..(odd line), BGBG..(even line), 16-bit samples, big-endian [NOT in AVI]
 
 Since many exotic planar YUVA pixel formats are not contemplated by
 the AVI/QuickTime FourCC lists, the following scheme is adopted for
