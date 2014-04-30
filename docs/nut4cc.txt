@@ -183,6 +183,9 @@ G3[00][14]  Planar GBR, 42bpp, 2 unused MSB per 16bit value, little-endian [NOT 
 G3[00][16]  Planar GBR, 48bpp, little-endian [NOT in AVI]
 [16][00]3G  Planar GBR, 48bpp, big-endian    [NOT in AVI]
 
+Audio:
+3389    RFC 3389 comfort noise generator
+
 Raw audio: [x] is an byte with value x,  [NOT in AVI]
 ALAW    A-LAW
 ULAW    MU-LAW
