@@ -204,5 +204,6 @@ SSA[0]  SubStation Alpha
 DVDS    DVD subtitles
 DVBS    DVB subtitles
 DVBT    DVB teletext
+C608    Closed caption
 
 FIXME dv/gray16/audio codecs/multi channel interleaving
