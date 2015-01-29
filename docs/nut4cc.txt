@@ -187,6 +187,7 @@ G3[00][16]  Planar GBR, 48bpp, little-endian [NOT in AVI]
 
 Audio:
 3389    RFC 3389 comfort noise generator
+wvpk    WavPack
 
 Raw audio: [x] is an byte with value x,  [NOT in AVI]
 ALAW    A-LAW
