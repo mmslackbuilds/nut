@@ -28,12 +28,12 @@ $(NUTUTILS_PROGS): CFLAGS += -Ilibnut
 install: install-libnut install-nututils
 
 install-libnut: libnut install-libnut-headers
-	install -d $(prefix)/lib
-	install -m 644 libnut/libnut.a $(prefix)/lib
+	install -d $(prefix)$(LIBDIR)
+	install -m 644 libnut/libnut.a $(prefix)$(LIBDIR)
 
 install-libnut-shared: libnut/libnut.so install-libnut-headers
-	install -d $(prefix)/lib
-	install -m 644 libnut/libnut.so $(prefix)/lib
+	install -d $(prefix)$(LIBDIR)
+	install -m 644 libnut/libnut.so $(prefix)$(LIBDIR)
 
 install-libnut-headers:
 	install -d $(prefix)/include
@@ -46,8 +46,8 @@ install-nututils: nututils
 uninstall: uninstall-libnut uninstall-nututils
 
 uninstall-libnut:
-	rm -f $(prefix)/lib/libnut.a
-	rm -f $(prefix)/lib/libnut.so
+	rm -f $(prefix)$(LIBDIR)/libnut.a
+	rm -f $(prefix)$(LIBDIR)/libnut.so
 	rm -f $(prefix)/include/libnut.h
 
 uninstall-nututils:

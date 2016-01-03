@@ -1,4 +1,5 @@
-PREFIX = /usr/local
+PREFIX ?= /usr/local
+LIBDIR ?= /lib
 prefix = $(DESTDIR)$(PREFIX)
 
 #CFLAGS += -DDEBUG
