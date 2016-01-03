@@ -6,7 +6,7 @@ NUTMERGE_OBJS = nututils/nutmerge.o nututils/demux_avi.o nututils/demux_ogg.o nu
 
 all: libnut nututils
 
-libnut: libnut/libnut.a
+libnut: libnut/libnut.a libnut/libnut.so
 
 libnut/libnut.a: $(LIBNUT_OBJS)
 	rm -f $@
@@ -25,7 +25,7 @@ nututils/nutmerge: $(NUTMERGE_OBJS) libnut/libnut.a
 
 $(NUTUTILS_PROGS): CFLAGS += -Ilibnut
 
-install: install-libnut install-nututils
+install: install-libnut install-libnut-shared install-nututils
 
 install-libnut: libnut install-libnut-headers
 	install -d $(prefix)$(LIBDIR)
