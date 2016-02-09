@@ -136,6 +136,10 @@ XYZ[36] Packed XYZ  12:12:12,    48bpp, 12X, 4, 12Y, 4, 12Z, 4, the 2-byte value
 [0xBA]GR[8]  Bayer, GRGR..(odd line), BGBG..(even line), 8-bit samples [NOT in AVI]
 [0xBA]GR[16] Bayer, GRGR..(odd line), BGBG..(even line), 16-bit samples, little-endian [NOT in AVI]
 [16]RG[0xBA] Bayer, GRGR..(odd line), BGBG..(even line), 16-bit samples, big-endian [NOT in AVI]
+PAL[1]       1bpp indexes (ordered from the msb to the lsb in each byte), followed by a up to   2 entry table of 8:8:8:8 BGRA entries [NOT in AVI]
+PAL[2]       2bpp indexes (ordered from the msb to the lsb in each byte), followed by a up to   4 entry table of 8:8:8:8 BGRA entries [NOT in AVI]
+PAL[4]       4bpp indexes (ordered from the msb to the lsb in each byte), followed by a up to  16 entry table of 8:8:8:8 BGRA entries [NOT in AVI]
+PAL[8]       8bpp indexes (ordered from the msb to the lsb in each byte), followed by a up to 256 entry table of 8:8:8:8 BGRA entries [NOT in AVI]
 
 Since many exotic planar YUVA pixel formats are not contemplated by
 the AVI/QuickTime FourCC lists, the following scheme is adopted for
